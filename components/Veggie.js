@@ -23,7 +23,7 @@ const Veggie = () => {
             const apiKey = process.env.NEXT_PUBLIC_API_KEY;
             const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=20&tags=vegetarian`);
             const data = await response.json();
-            localStorage.setItem('recipe', JSON.stringify(data.recipes));
+            localStorage.setItem('veggie', JSON.stringify(data.recipes));
             setVeggie(data.recipes);
           } catch (error) {
             console.error('Error fetching data:', error);
