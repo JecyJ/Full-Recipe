@@ -1,12 +1,15 @@
-import APIs from "@components/APIs";
-import Home from "@components/Veggie";
+import Home from "@components/Home";
+import Popular from "@components/Popular";
+import Veggie from "@components/Veggie";
+
 
 
 const Recipe = () => {
   return (
     <>
       <Home />
-      <APIs />
+      <Popular />
+      <Veggie />      
     </>
   )
 }
