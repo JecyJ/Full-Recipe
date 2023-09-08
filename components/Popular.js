@@ -15,20 +15,21 @@ const Popular = () => {
   useEffect(() => {
     async function fetchRandomRecipe() {
 
-        const check = localStorage.getItem('recipe');
-        if (check){
-          setRecipe(JSON.parse(check));
-        }else {
-          try {
-            const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-            const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=20`);
-            const data = await response.json();
-            localStorage.setItem('recipe', JSON.stringify(data.recipes));
-            setRecipe(data.recipes);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        }        
+      const check = localStorage.getItem('recipe');
+
+      if(check) {
+        setRecipe(JSON.parse(check));
+      } else {
+        try {
+          const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+          const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=20`);
+          const data = await response.json();
+          localStorage.setItem('recipe', JSON.stringify(data.recipes));
+          setRecipe(data.recipes);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }    
     }      
 
     fetchRandomRecipe();
@@ -44,7 +45,7 @@ const Popular = () => {
           arrows:false,
           pagination: false,
           gap:"2rem",
-          drag:"free"
+          drag:"free",
         }}>
           {recipe.map((recipes) => (
             <SplideSlide key={recipes.id}>

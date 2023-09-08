@@ -1,20 +1,25 @@
 'use client'
 
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const CusineOne = () => {
 
-    const [cusineOne, setCusineOne] = useState([]);
+const Cusine = () => {
+  // const router = useRouter()
+
+    const [cusine, setCusine] = useState([]);
 
   useEffect(() => {
-    async function fetchCusineOne () {
+    async function fetchCusine () {
 
         try {
             const apiKey = process.env.NEXT_PUBLIC_API_KEY;
             const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&cuisines=Italian`);
             const data = await response.json();
             // localStorage.setItem('cusine1', JSON.stringify(recipes.results));
-            setCusineOne(data.results);
+            setCusine(data.results);
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -26,17 +31,17 @@ const CusineOne = () => {
          
         // }        
     }  
-    console.log(fetchCusineOne())    
+    console.log(fetchCusine())    
 
-    fetchCusineOne();
+    fetchCusine();
   }, []);
 
 
   return (
     <section>
-
+      <h1>cusine</h1>
     </section>
   )
 }
 
-export default CusineOne;
+export default Cusine;

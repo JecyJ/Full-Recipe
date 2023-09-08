@@ -1,10 +1,10 @@
-import Cusine1 from "@components/Cusine1";
+import Cusine from "@components/Cusine";
 
 
 const Italian = () => {
   return (
     <section>
-      <Cusine1 />
+      <Cusine />
     </section>
   )
 }
