@@ -1,8 +1,11 @@
+import Cusine from "@components/Cusine";
 
 
 const Japanese = () => {
   return (
-    <div>Japanese</div>
+    <section>
+      <Cusine cuisineName="Japanese" />
+    </section>
   )
 }
 
